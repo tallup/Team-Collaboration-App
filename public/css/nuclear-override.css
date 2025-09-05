@@ -1,0 +1,229 @@
+/* NUCLEAR APPROACH - Complete Filament Override */
+
+/* Force horizontal navigation - Override everything */
+.fi-sidebar,
+[class*="sidebar"],
+[class*="navigation"] {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 60px !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+    background: white !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+    transform: none !important;
+    transition: none !important;
+    display: block !important;
+}
+
+/* Force horizontal header */
+.fi-sidebar-header,
+[class*="sidebar-header"],
+[class*="brand"] {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    height: 60px !important;
+    padding: 0 24px !important;
+    width: 100% !important;
+    flex-direction: row !important;
+}
+
+/* Force logo replacement */
+.fi-brand,
+[class*="brand"],
+[class*="logo"] {
+    width: 40px !important;
+    height: 40px !important;
+    margin-right: 16px !important;
+    background-image: url('/images/logo.png') !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    text-indent: -9999px !important;
+    overflow: hidden !important;
+    border-radius: 8px !important;
+    display: block !important;
+}
+
+/* Hide any text in brand elements */
+.fi-brand *,
+[class*="brand"] *,
+[class*="logo"] * {
+    display: none !important;
+}
+
+/* Force horizontal navigation */
+.fi-nav,
+[class*="nav"] {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    height: 60px !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    flex-direction: row !important;
+}
+
+/* Force navigation items horizontal */
+.fi-nav-item,
+[class*="nav-item"] {
+    display: flex !important;
+    align-items: center !important;
+    white-space: nowrap !important;
+    margin: 0 !important;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    transition: all 0.2s !important;
+    flex-direction: row !important;
+}
+
+.fi-nav-item:hover,
+[class*="nav-item"]:hover {
+    background-color: rgba(102, 126, 234, 0.1) !important;
+}
+
+.fi-nav-item[aria-current="page"],
+[class*="nav-item"][aria-current="page"] {
+    background-color: rgba(102, 126, 234, 0.15) !important;
+    color: #667eea !important;
+}
+
+.fi-nav-item a,
+[class*="nav-item"] a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    text-decoration: none !important;
+    color: inherit !important;
+    font-weight: 500 !important;
+    padding: 0 !important;
+}
+
+.fi-nav-item svg,
+[class*="nav-item"] svg {
+    width: 18px !important;
+    height: 18px !important;
+    margin-right: 0 !important;
+}
+
+/* Force main content below navigation */
+.fi-main,
+[class*="main"] {
+    margin-top: 60px !important;
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.fi-main-content,
+.fi-page-content,
+.fi-page,
+[class*="main-content"],
+[class*="page-content"],
+[class*="page"] {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Hide sidebar collapse button */
+.fi-sidebar .fi-sidebar-collapse-button,
+[class*="collapse-button"] {
+    display: none !important;
+}
+
+/* Override any conflicting styles */
+*[style*="transform"],
+*[style*="width"],
+*[style*="height"] {
+    position: relative !important;
+}
+
+.fi-sidebar[style*="transform"],
+.fi-sidebar[style*="width"],
+.fi-sidebar[style*="height"] {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 60px !important;
+    width: 100% !important;
+    transform: none !important;
+}
+
+/* SIMPLE OVERRIDE - Less aggressive approach */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+/* Simple horizontal navigation */
+.fi-sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 60px !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+    background: white !important;
+    border-bottom: 1px solid #e5e7eb !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .fi-sidebar,
+    [class*="sidebar"] {
+        height: 50px !important;
+    }
+    
+    .fi-sidebar-header,
+    [class*="sidebar-header"] {
+        height: 50px !important;
+        padding: 0 16px !important;
+    }
+    
+    .fi-nav,
+    [class*="nav"] {
+        height: 50px !important;
+        gap: 4px !important;
+    }
+    
+    .fi-nav-item,
+    [class*="nav-item"] {
+        padding: 6px 12px !important;
+        font-size: 14px !important;
+    }
+    
+    .fi-nav-item svg,
+    [class*="nav-item"] svg {
+        width: 16px !important;
+        height: 16px !important;
+    }
+    
+    .fi-main,
+    [class*="main"] {
+        margin-top: 50px !important;
+    }
+    
+    /* Hide text on very small screens, show only icons */
+    .fi-nav-item span,
+    [class*="nav-item"] span {
+        display: none !important;
+    }
+    
+    .fi-nav-item,
+    [class*="nav-item"] {
+        padding: 8px !important;
+        min-width: 40px !important;
+        justify-content: center !important;
+    }
+}

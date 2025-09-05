@@ -1,0 +1,23 @@
+# Ignore Blade template files
+resources/views/**/*.blade.php
+
+# Ignore vendor files
+vendor/
+
+# Ignore node_modules
+node_modules/
+
+# Ignore build files
+public/build/
+public/hot
+public/storage
+
+# Ignore cache files
+bootstrap/cache/
+storage/logs/
+storage/framework/cache/
+storage/framework/sessions/
+storage/framework/views/
+
+# Ignore compiled views
+storage/framework/views/*.php

@@ -1,0 +1,125 @@
+/* USGamNeeds Login Page Styling */
+
+/* Background and Layout */
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    min-height: 100vh !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+/* Login Card Styling */
+.fi-simple-page {
+    background: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(20px) !important;
+    border-radius: 24px !important;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    max-width: 450px !important;
+    width: 100% !important;
+    margin: 20px auto !important;
+    padding: 48px !important;
+}
+
+/* Form Input Styling */
+.fi-input {
+    border: 2px solid #e5e7eb !important;
+    border-radius: 12px !important;
+    padding: 12px 16px !important;
+    font-size: 16px !important;
+    transition: all 0.3s ease !important;
+    background: white !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.fi-input:focus {
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+    outline: none !important;
+    transform: translateY(-1px) !important;
+}
+
+.fi-input::placeholder {
+    color: #9ca3af !important;
+}
+
+/* Label Styling */
+.fi-label {
+    font-weight: 600 !important;
+    color: #374151 !important;
+    margin-bottom: 8px !important;
+    font-size: 14px !important;
+    display: block !important;
+}
+
+/* Button Styling */
+.fi-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border: none !important;
+    padding: 12px 24px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 14px 0 rgba(102, 126, 234, 0.4) !important;
+    transition: all 0.3s ease !important;
+    color: white !important;
+    width: 100% !important;
+    cursor: pointer !important;
+}
+
+.fi-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px 0 rgba(102, 126, 234, 0.5) !important;
+}
+
+/* Checkbox Styling */
+.fi-checkbox {
+    border: 2px solid #e5e7eb !important;
+    border-radius: 6px !important;
+    transition: all 0.3s ease !important;
+    width: 18px !important;
+    height: 18px !important;
+}
+
+.fi-checkbox:checked {
+    background-color: #667eea !important;
+    border-color: #667eea !important;
+}
+
+.fi-checkbox:focus {
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+}
+
+.fi-checkbox-label {
+    font-weight: 500 !important;
+    color: #374151 !important;
+    margin-left: 8px !important;
+}
+
+/* Logo Animation */
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+.logo-float {
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .fi-simple-page {
+        padding: 32px 24px !important;
+        margin: 16px !important;
+    }
+    
+    .fi-input {
+        font-size: 16px !important; /* Prevents zoom on iOS */
+    }
+}
+
+/* Brand Colors */
+.usgamneeds-us { color: #fbbf24 !important; }
+.usgamneeds-gam { color: #3b82f6 !important; }
+.usgamneeds-needs { color: #6b7280 !important; }

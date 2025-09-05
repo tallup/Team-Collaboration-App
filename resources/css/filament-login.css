@@ -1,0 +1,154 @@
+/* USGamNeeds Login Form Styling */
+
+/* Form Input Styling */
+.filament-forms-text-input {
+    border: 2px solid #e5e7eb !important;
+    border-radius: 12px !important;
+    padding: 12px 16px !important;
+    font-size: 16px !important;
+    transition: all 0.3s ease !important;
+    background: white !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+.filament-forms-text-input:focus {
+    border-color: #667eea !important;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+    outline: none !important;
+    transform: translateY(-1px) !important;
+}
+
+.filament-forms-text-input::placeholder {
+    color: #9ca3af !important;
+    font-weight: 400 !important;
+}
+
+/* Label Styling */
+.filament-forms-label {
+    font-weight: 600 !important;
+    color: #374151 !important;
+    margin-bottom: 8px !important;
+    font-size: 14px !important;
+    display: block !important;
+}
+
+/* Checkbox Styling */
+.filament-forms-checkbox {
+    border: 2px solid #e5e7eb !important;
+    border-radius: 6px !important;
+    transition: all 0.3s ease !important;
+    width: 18px !important;
+    height: 18px !important;
+}
+
+.filament-forms-checkbox:checked {
+    background-color: #667eea !important;
+    border-color: #667eea !important;
+}
+
+.filament-forms-checkbox:focus {
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1) !important;
+}
+
+.filament-forms-checkbox-label {
+    font-weight: 500 !important;
+    color: #374151 !important;
+    margin-left: 8px !important;
+}
+
+/* Button Styling */
+.filament-button {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    border: none !important;
+    padding: 12px 24px !important;
+    font-size: 16px !important;
+    font-weight: 600 !important;
+    border-radius: 12px !important;
+    box-shadow: 0 4px 14px 0 rgba(102, 126, 234, 0.4) !important;
+    transition: all 0.3s ease !important;
+    color: white !important;
+    cursor: pointer !important;
+    width: 100% !important;
+}
+
+.filament-button:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px 0 rgba(102, 126, 234, 0.5) !important;
+}
+
+.filament-button:active {
+    transform: translateY(0) !important;
+}
+
+/* Error Styling */
+.filament-forms-text-input-error {
+    border-color: #ef4444 !important;
+}
+
+.filament-forms-error-message {
+    color: #ef4444 !important;
+    font-size: 14px !important;
+    margin-top: 4px !important;
+    font-weight: 500 !important;
+}
+
+/* Success Styling */
+.filament-forms-text-input-success {
+    border-color: #10b981 !important;
+}
+
+/* Loading State */
+.filament-button-loading {
+    opacity: 0.7 !important;
+    cursor: not-allowed !important;
+}
+
+/* Form Container */
+.filament-forms-component {
+    margin-bottom: 20px !important;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+    .filament-panels-page {
+        padding: 16px !important;
+    }
+    
+    .filament-panels-page > div {
+        padding: 32px 24px !important;
+    }
+    
+    .filament-panels-page h1 {
+        font-size: 24px !important;
+    }
+    
+    .filament-panels-page img {
+        width: 48px !important;
+        height: 48px !important;
+    }
+    
+    .filament-forms-text-input {
+        font-size: 16px !important; /* Prevents zoom on iOS */
+    }
+}
+
+/* Animation for Logo */
+@keyframes logoFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+}
+
+.logo-animation {
+    animation: logoFloat 3s ease-in-out infinite;
+}
+
+/* Hover Effects */
+.login-card {
+    transition: all 0.3s ease !important;
+}
+
+.login-card:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.3) !important;
+}
