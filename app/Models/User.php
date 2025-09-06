@@ -96,4 +96,46 @@ class User extends Authenticatable implements FilamentUser
     {
         return $this->hasMany(Comment::class);
     }
+
+    /**
+     * Get the chat rooms the user belongs to.
+     */
+    public function chatRooms()
+    {
+        return $this->belongsToMany(ChatRoom::class, 'chat_room_user', 'user_id', 'room_id')
+            ->withPivot(['role', 'joined_at', 'last_read_at', 'is_muted'])
+            ->withTimestamps();
+    }
+
+    /**
+     * Get the chat messages sent by the user.
+     */
+    public function chatMessages()
+    {
+        return $this->hasMany(ChatMessage::class);
+    }
+
+    /**
+     * Get the files uploaded by the user.
+     */
+    public function fileShares()
+    {
+        return $this->hasMany(FileShare::class, 'uploaded_by');
+    }
+
+    /**
+     * Get the mentions for this user.
+     */
+    public function mentions()
+    {
+        return $this->hasMany(Mention::class, 'mentioned_user_id');
+    }
+
+    /**
+     * Get unread mentions for this user.
+     */
+    public function unreadMentions()
+    {
+        return $this->mentions()->where('is_read', false);
+    }
 }

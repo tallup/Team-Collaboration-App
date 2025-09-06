@@ -52,6 +52,16 @@ Route::get('/admin/custom-dashboard', function () {
     return view('custom-dashboard');
 })->middleware('auth');
 
+// Chat page route
+Route::get('/admin/chat', function () {
+    return view('custom-chat');
+})->middleware('auth');
+
+// Video call page route
+Route::get('/admin/video-call', function () {
+    return view('custom-video-call');
+})->middleware('auth');
+
 Route::get('/admin/custom-projects', function () {
     $projects = \App\Models\Project::with(['primaryUser:id,name', 'owner:id,name', 'users:id,name', 'tasks'])
         ->select(['id', 'name', 'description', 'status', 'user_id', 'owner_id', 'created_at'])
@@ -632,6 +642,35 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return redirect('/admin/custom-dashboard');
     })->name('dashboard');
+});
+
+// Chat and Communication Routes
+Route::middleware(['auth'])->prefix('api/chat')->group(function () {
+    Route::get('/rooms', [App\Http\Controllers\ChatController::class, 'index']);
+    Route::post('/rooms', [App\Http\Controllers\ChatController::class, 'store']);
+    Route::get('/rooms/{room}', [App\Http\Controllers\ChatController::class, 'show']);
+    Route::post('/rooms/{room}/messages', [App\Http\Controllers\ChatController::class, 'sendMessage']);
+    Route::get('/rooms/{room}/messages', [App\Http\Controllers\ChatController::class, 'getMessages']);
+    Route::post('/rooms/{room}/users', [App\Http\Controllers\ChatController::class, 'addUsers']);
+    Route::delete('/rooms/{room}/users', [App\Http\Controllers\ChatController::class, 'removeUsers']);
+    Route::post('/rooms/{room}/leave', [App\Http\Controllers\ChatController::class, 'leave']);
+    Route::get('/mentions/unread', [App\Http\Controllers\ChatController::class, 'getUnreadMentions']);
+    Route::post('/mentions/read', [App\Http\Controllers\ChatController::class, 'markMentionsAsRead']);
+    Route::get('/mentions/suggestions', [App\Http\Controllers\ChatController::class, 'getMentionSuggestions']);
+});
+
+// File Sharing Routes
+Route::middleware(['auth'])->prefix('api/files')->group(function () {
+    Route::post('/upload', [App\Http\Controllers\FileShareController::class, 'upload']);
+    Route::get('/', [App\Http\Controllers\FileShareController::class, 'index']);
+    Route::get('/recent', [App\Http\Controllers\FileShareController::class, 'getRecent']);
+    Route::get('/search', [App\Http\Controllers\FileShareController::class, 'search']);
+    Route::get('/{fileShare}', [App\Http\Controllers\FileShareController::class, 'show']);
+    Route::get('/{fileShare}/download', [App\Http\Controllers\FileShareController::class, 'download']);
+    Route::put('/{fileShare}', [App\Http\Controllers\FileShareController::class, 'update']);
+    Route::delete('/{fileShare}', [App\Http\Controllers\FileShareController::class, 'destroy']);
+    Route::post('/{fileShare}/version', [App\Http\Controllers\FileShareController::class, 'uploadVersion']);
+    Route::get('/{fileShare}/versions', [App\Http\Controllers\FileShareController::class, 'getVersions']);
 });
 
 require __DIR__.'/auth.php';
