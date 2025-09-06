@@ -236,17 +236,14 @@ Route::get('/debug-project', function () {
             return 'No users found';
         }
         
-        // Try to create project with minimal data first - disable foreign key checks
-        \DB::statement('PRAGMA foreign_keys=OFF;');
-        
+        // Try to create project with minimal data first
         $project = \App\Models\Project::create([
             'name' => 'Test Project ' . time(),
             'status' => 'planning',
             'owner_id' => $user->id,
             'user_id' => $user->id,
+            'team_id' => null, // Explicitly set to null since we made it nullable
         ]);
-        
-        \DB::statement('PRAGMA foreign_keys=ON;');
         
         return 'Project created successfully with ID: ' . $project->id;
     } catch (\Exception $e) {
@@ -310,20 +307,17 @@ Route::post('/admin/custom-projects', function () {
             return redirect()->back()->with('error', 'You must be logged in to create a project.');
         }
         
-        // Create the project - temporarily disable foreign key checks
-        \DB::statement('PRAGMA foreign_keys=OFF;');
-        
+        // Create the project
         $project = \App\Models\Project::create([
             'name' => request('name'),
             'description' => request('description'),
             'status' => request('status'),
             'owner_id' => $currentUser->id,
             'user_id' => $currentUser->id,
+            'team_id' => null, // Set to null since we made it nullable
             'start_date' => request('start_date'),
             'due_date' => request('due_date'),
         ]);
-        
-        \DB::statement('PRAGMA foreign_keys=ON;');
     
         // Handle assigned users if provided
         $userIds = [];
@@ -343,12 +337,10 @@ Route::post('/admin/custom-projects', function () {
         
         // Attach all users to the project
         if (!empty($userIds)) {
-            \DB::statement('PRAGMA foreign_keys=OFF;');
             $project->users()->attach($userIds, ['role' => 'member']);
             
             // Set the creator as owner
             $project->users()->updateExistingPivot($currentUser->id, ['role' => 'owner']);
-            \DB::statement('PRAGMA foreign_keys=ON;');
             
             // Send email notifications to assigned users
             $assignedUsers = \App\Models\User::whereIn('id', $userIds)->get();

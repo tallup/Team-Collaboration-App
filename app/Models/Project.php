@@ -14,6 +14,7 @@ class Project extends Model
         'name',
         'description',
         'slug',
+        'team_id',
         'user_id',
         'owner_id',
         'status',
